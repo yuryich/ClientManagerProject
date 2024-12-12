@@ -2,6 +2,8 @@
 #define CLIENT_MANAGER_HPP
 
 #include <string>
+#include <vector>
+#include <tuple>
 #include <pqxx/pqxx>
 
 class ClientManager {
@@ -16,7 +18,8 @@ public:
 	void updateClient(int clientId, const std::string& firstName, const std::string& lastName, const std::string& email);
 	void deletePhone(int phoneId);
 	void deleteClient(int clientId);
-	void findClient(const std::string& query);
+
+	std::vector<std::tuple<int, std::string, std::string, std::string>> findClient(const std::string& query);
 };
 
 #endif
